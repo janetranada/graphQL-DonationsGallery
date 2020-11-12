@@ -1,0 +1,23 @@
+.btn-box {
+  margin: 10px;
+  margin-left: 0;
+}
+
+.card-container {
+  padding-top: 20px;
+}
+
+.container {
+  padding-top: 90px;
+}
+
+.title {
+  margin-block-end: 30px;
+}
+
+.text-label {
+  color: #556052;
+  font-weight: bold;
+  margin-block-end: 5px;
+  margin-block-start: 5px;
+}
