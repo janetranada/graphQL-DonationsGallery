@@ -5,17 +5,20 @@ import Button from "../components/Button";
 import Loader from "../components/Loader";
 
 import "../App.css";
+import Card from "../components/Card";
 
 const Gallery = () => {
   const [page, setPage] = useState(1);
+  const [liked, setLiked] = useState(1);
 
   let getAllArticles = getArticles(page);
 
-  const handleClick = (event) => {
+  const handleLike = (event) => {
     const donationTargetInfo = JSON.parse(
       event.target.getAttribute("data-info")
     );
     saveToLocalStorage(donationTargetInfo);
+    setLiked((prevLiked) => prevLiked + 1);
   };
 
   const saveToLocalStorage = (data) => {
@@ -51,33 +54,13 @@ const Gallery = () => {
             <h1 className="title">Donation Targets Gallery</h1>
             <div className="row">
               {data.getDonationTargets.donationTargets.map((target) => (
-                <div className="col-sm card-container" key={target.id}>
-                  <div className="card" style={{ width: "18rem" }}>
-                    <div>{target.id}</div>
-                    <div className="card-body">
-                      <h5 className="card-title">{target.name}</h5>
-                      <p className="text-label">Organization:</p>
-                      <p className="card-text">
-                        {target.charityOrganization.name}
-                      </p>
-                      {target.descriptionContent && (
-                        <>
-                          <p className="text-label">Description:</p>
-                          <p className="card-text">
-                            {target.descriptionContent}
-                          </p>
-                        </>
-                      )}
-                      <div
-                        data-info={JSON.stringify(target)}
-                        className="btn btn-primary"
-                        onClick={handleClick}
-                      >
-                        Like
-                      </div>
-                    </div>
-                  </div>
-                </div>
+                <Card
+                  item={target}
+                  btnColor="primary"
+                  btnLabel="Like"
+                  handleClick={handleLike}
+                  key={target.id}
+                />
               ))}
             </div>
 
