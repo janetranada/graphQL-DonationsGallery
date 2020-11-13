@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Query } from "react-apollo";
 import getArticles from "../query";
 import Button from "../components/Button";
@@ -8,7 +8,9 @@ import "../App.css";
 import Card from "../components/Card";
 
 const Gallery = () => {
-  const [page, setPage] = useState(1);
+  const [page, setPage] = useState(
+    JSON.parse(sessionStorage.getItem("galleryPage")) || 1
+  );
   const [liked, setLiked] = useState(1);
 
   let getAllArticles = getArticles(page);
@@ -34,8 +36,12 @@ const Gallery = () => {
     );
   };
 
+  const saveSessionPage = (page) => sessionStorage.setItem("galleryPage", page);
+
   const goToNextPage = () => setPage((prevpage) => prevpage + 1);
   const goToPrevPage = () => setPage((prevpage) => prevpage - 1);
+
+  useEffect(() => saveSessionPage(page), [page]);
 
   return (
     <Query query={getAllArticles}>

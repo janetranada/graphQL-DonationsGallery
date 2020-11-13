@@ -1,10 +1,10 @@
 import React from "react";
-import "./App.css";
-import Navbar from "./components/Navbar";
 import { Switch, Route, BrowserRouter as Router } from "react-router-dom";
 
+import "./App.css";
 import Gallery from "./pages/Gallery";
 import Favorites from "./pages/Favorites";
+import Navbar from "./components/Navbar";
 
 function App() {
   return (

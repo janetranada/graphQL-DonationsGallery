@@ -10,16 +10,12 @@ const Card = ({ item, btnColor, btnLabel, handleClick }) => {
   };
 
   const setGalleryBtnLabel = (id, label) => {
-    if (label === "Like" && isFave(id)) {
-      return "Liked";
-    }
+    if (label === "Like" && isFave(id)) return "Liked";
     return label;
   };
 
   const setGalleryBtnColor = (id, color) => {
-    if (color === "primary" && isFave(id)) {
-      return "secondary";
-    }
+    if (color === "primary" && isFave(id)) return "secondary";
     return color;
   };
 

@@ -10,16 +10,6 @@ const getArticles = (page) => {
           id
           name
           descriptionContent
-          endsAt
-          succeededAt
-          targetAmount
-          donationTargetStatistic {
-            donorCount
-            totalMatchedAmount
-          }
-          category {
-            name
-          }
           charityOrganization {
             name
           }
