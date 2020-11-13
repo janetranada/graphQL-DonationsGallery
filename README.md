@@ -7,6 +7,13 @@ List of Donation Targets with the following information, if available:
 - Charity Organization
 - Description
 
+## Usage
+
+- Click on the "Like" button to mark as favorite/liked.
+- List of favorited / liked targets are shown in the "Favorites" page.
+- Favorited / Liked target can be unliked by clicking on the "Remove" button.
+- Most recent page queried in Gallery List is remembered as long as the session tab is not closed.
+
 ## Running Chrome without CORS
 
 Open new instance of Chrome using CMD
